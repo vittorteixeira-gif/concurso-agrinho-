@@ -1,0 +1,140 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f9f4;
+    color: #333;
+}
+
+header {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+nav {
+    background-color: #1b5e20;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: #2e7d32;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.divisor {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 3rem 0;
+}
+
+/* Seção de Notícias */
+.grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+/* Seção do Jogo */
+#jogo-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+canvas {
+    border: 4px solid #2e7d32;
+    background-color: #e8f5e9;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.controles-mobile {
+    margin-top: 1rem;
+}
+
+.btn-seta {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 5px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-seta:hover {
+    background-color: #1b5e20;
+}
+
+#mensagem {
+    color: #2e7d32;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+}
