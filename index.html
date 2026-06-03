@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Agrinho 2026</title>
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f9f4;
+            color: #333;
+        }
+        header {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        nav {
+            background-color: #1b5e20;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #2e7d32;
+            border-radius: 4px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Seção de Notícias */
+        .grid-noticias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .card-content h3 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+
+        /* Seção do Jogo */
+        #jogo-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .canvas-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        canvas {
+            border: 4px solid #2e7d32;
+            background-color: #e8f5e9;
+        }
+        .controles-mobile {
+            margin-top: 1rem;
+        }
+        .btn-seta {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Concurso Agrinho 2026</h1>
+        <p>Campo e Cidade, conexões que transformam & Sustentabilidade</p>
+    </header>
+
+    <nav>
+        <a href="#noticias">Notícias</a>
+        <a href="#jogo">Jogo do Labirinto</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="noticias">
+            <h2>Notícias em Destaque</h2>
+            <div class="grid-noticias">
+                
+                <div class="card">
+                    <img src="https://picsum.photos/id/292/600/400" alt="Conexão Campo e Cidade">
+                    <div class="card-content">
+                        <h3>Campo e Cidade: Conexões que Transformam</h3>
+                        <p>O tema central do Agrinho 2026 fomenta a discussão sobre a complementaridade entre a produção rural e o desenvolvimento urbano. Projetos escolares destacam como a tecnologia une esses dois mundos.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://picsum.photos/id/342/600/400" alt="Tecnologia no Agro">
+                    <div class="card-content">
+                        <h3>Robótica e o Futuro Sustentável</h3>
+                        <p>Estudantes usam a robótica para criar soluções de equilíbrio entre a alta produção agrícola e a preservação ambiental. O foco deste ano é a inteligência voltada ao campo consciente.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://picsum.photos/id/16/600/400" alt="Preservação Ambiental">
+                    <div class="card-content">
+                        <h3>A Força do Agro na Educação</h3>
+                        <p>Com milhares de projetos inscritos, o Agrinho se consolida em 2026 como a maior iniciativa pedagógica de conscientização social, ambiental e tecnológica para crianças e jovens.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: #ddd; margin: 3rem 0;">
+
+        <section id="jogo">
+            <div id="jogo-container">
+                <h2>Labirinto do Agrinho: Caminho Sustentável</h2>
+                <p>Use as <strong>setas do teclado</strong> (ou os botões abaixo) para guiar o Agrinho (🟢) até o Futuro Sustentável (⭐)!</p>
+                
+                <div class="canvas-wrapper">
+                    <canvas id="labirintoCanvas" width="400" height="400"></canvas>
+                </div>
+
+                <div class="controles-mobile">
+                    <button class="btn-seta" onclick="mover('cima')">▲</button><br>
+                    <button class="btn-seta" onclick="mover('esquerda')">◀</button>
+                    <button class="btn-seta" onclick="mover('direita')">▶</button><br>
+                    <button class="btn-seta" onclick="mover('baixo')">▼</button>
+                </div>
+                <h3 id="mensagem" style="color: #2e7d32;"></h3>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Projeto Desenvolvido para o Concurso Agrinho</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('labirintoCanvas');
+        const ctx = canvas.getContext('2d');
+        const mensagem = document.getElementById('mensagem');
+
+        const TAMANHO_BLOCO = 40;
+        
+        // 1 = Parede, 0 = Caminho Livre, 2 = Jogador, 3 = Destino (Estrela)
+        let labirinto = [
+            [1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,1,0,0,0,0,1],
+            [1,1,1,0,1,0,1,1,0,1],
+            [1,0,0,0,0,0,1,0,0,1],
+            [1,0,1,1,1,1,1,0,1,1],
+            [1,0,1,0,0,0,0,0,0,1],
+            [1,0,1,0,1,1,1,1,0,1],
+            [1,0,0,0,1,0,0,1,0,1],
+            [1,1,1,0,0,0,1,0,3,1],
+            [1,1,1,1,1,1,1,1,1,1]
+        ];
+
+        // Posição inicial do jogador
+        let jogadorX = 1;
+        let jogadorY = 1;
+
+        function desenharLabirinto() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let r = 0; r < labirinto.length; r++) {
+                for (let c = 0; c < labirinto[r].length; c++) {
+                    if (labirinto[r][c] === 1) {
+                        ctx.fillStyle = '#1b5e20'; // Cor da parede (arbusto)
+                        ctx.fillRect(c * TAMANHO_BLOCO, r * TAMANHO_BLOCO, TAMANHO_BLOCO, TAMANHO_BLOCO);
+                    } else if (labirinto[r][c] === 3) {
+                        ctx.fillStyle = '#fbc02d'; // Cor do objetivo (estrela)
+                        ctx.font = "30px Arial";
+                        ctx.fillText("⭐", c * TAMANHO_BLOCO + 5, r * TAMANHO_BLOCO + 30);
+                    }
+                }
+            }
+
+            // Desenha o Jogador (Agrinho)
+            ctx.fillStyle = '#4caf50';
+            ctx.beginPath();
+            ctx.arc(jogadorX * TAMANHO_BLOCO + TAMANHO_BLOCO/2, jogadorY * TAMANHO_BLOCO + TAMANHO_BLOCO/2, TAMANHO_BLOCO/3, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function mover(direcao) {
+            let novoX = jogadorX;
+            let novoY = jogadorY;
+
+            if (direcao === 'cima') novoY--;
+            if (direcao === 'baixo') novoY++;
+            if (direcao === 'esquerda') novoX--;
+            if (direcao === 'direita') novoX++;
+
+            // Verifica colisão com parede
+            if (labirinto[novoY][novoX] !== 1) {
+                jogadorX = novoX;
+                jogadorY = novoY;
+            }
+
+            // Verifica se ganhou
+            if (labirinto[jogadorY][jogadorX] === 3) {
+                mensagem.innerText = "🎉 Parabéns! Você conectou o campo e a cidade de forma sustentável!";
+            }
+
+            desenharLabirinto();
+        }
+
+        // Captura teclas do teclado
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowUp') mover('cima');
+            if (e.key === 'ArrowDown') mover('baixo');
+            if (e.key === 'ArrowLeft') mover('esquerda');
+            if (e.key === 'ArrowRight') mover('direita');
+        });
+
+        // Inicializa o desenho do jogo
+        desenharLabirinto();
+    </script>
+</body>
+</html>
